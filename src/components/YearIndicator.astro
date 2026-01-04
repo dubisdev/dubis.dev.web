@@ -1,0 +1,13 @@
+<script>
+    const today = new Date();
+
+    const element = document.querySelector(".year-indicator");
+
+    console.log("Executed");
+
+    if (element) {
+        element.textContent = today.getFullYear().toString();
+    }
+</script>
+
+<span class="year-indicator"></span>

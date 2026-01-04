@@ -1,48 +1,78 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import profileImage from "../assets/profile.webp";
+import StarsBg from "../components/StarsBg.astro";
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={"DUBISDEV - Portfolio y Blog de David Jiménez"}
+			description={"My web and blog about Software Engineering"}
+		/>
 	</head>
+
 	<body>
 		<Header />
+		<StarsBg />
+
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- Hero section -->
+			<section id="hero">
+				<article
+					class="flex-1 min-w-0 max-w-full sm:max-w-2xl px-3 pt-2 order-2 sm:order-1"
+				>
+					<h2
+						class="text-white text-center text-3xl sm:text-left sm:text-4xl md:text-5xl"
+					>
+						👋 ¡Hola! Soy
+					</h2>
+					<h1
+						class="text-sky-600 font-bold text-center text-4xl sm:text-left sm:text-5xl md:text-7xl"
+					>
+						David Jiménez
+					</h1>
+					<h3
+						class="text-white text-center text-xl sm:text-left sm:text-2xl md:text-4xl"
+					>
+						Desarrollador de Software
+					</h3>
+					<p
+						class="text-white mt-5 text-base sm:text-lg md:text-xl xl:text-2xl xl:mt-10"
+					>
+						Soy un desarrollador de software <b>full stack</b> apasionado
+						por el código limpio y la <b>arquitectura de software</b
+						>. En mi tiempo libre creo pequeñas aplicaciones que
+						resulven problemas cotidianos y escribo sobre temas
+						relacionados con el desarrollo de software y la
+						tecnología.
+					</p>
+					<p class="text-base sm:text-lg">
+						¿Quieres saber mis últimos proyectos? Mi <a
+							target="_blank"
+							href="https://github.com/dubisdev">GitHub</a
+						> siempre está actualidado.
+					</p>
+				</article>
+				<div
+					class="flex justify-center w-full sm:w-auto shrink-0 order-1 sm:order-2"
+				>
+					<Image
+						class="home__container-img__img"
+						src={profileImage}
+						alt="Foto de perfil"
+						width={396}
+						height={396}
+					/>
+				</div>
+			</section>
+			<section>
+				<SkillsSection />
+			</section>
 		</main>
 		<Footer />
 	</body>

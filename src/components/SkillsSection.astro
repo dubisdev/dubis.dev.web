@@ -1,0 +1,100 @@
+---
+import ts from "./skills/typescript.svg";
+import express from "./skills/expressjs.svg";
+import html from "./skills/html.svg";
+import git from "./skills/git.svg";
+import tauri from "./skills/tauri.svg";
+import mongodb from "./skills/mongodb.svg";
+import react from "./skills/react.svg";
+import node from "./skills/node-js.svg";
+
+import { Image } from "astro:assets";
+
+const skills = [
+    { name: "TypeScript", iconSrc: ts },
+    { name: "Node.js", iconSrc: node },
+    { name: "Express", iconSrc: express },
+    { name: "React", iconSrc: react },
+    { name: "Git", iconSrc: git },
+    { name: "Tauri", iconSrc: tauri },
+    { name: "MongoDB", iconSrc: mongodb },
+];
+---
+
+<style>
+    #habilidades {
+        min-height: 40vh;
+        padding: 10px 50px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--colorText);
+    }
+
+    .skills h3 {
+        font-weight: 600;
+    }
+
+    .skills__container {
+        width: 100%;
+        max-width: 1400px;
+        border-radius: 15px;
+    }
+
+    .skills__lista {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 22px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .skills__lista li {
+        width: 222px;
+        font-size: 21px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
+        border: 3px solid #1d1d26;
+        padding: 13px 17px;
+        border-radius: 8px;
+        transition: transform 0.4s;
+    }
+
+    .skills__lista li:hover {
+        transform: scale(1.06);
+    }
+
+    .skills__lista img {
+        object-fit: cover;
+        height: 48px;
+        width: 48px;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="skills" id="habilidades">
+    <h2 class="title">Habilidades</h2>
+    <div class="skills__container">
+        <ul class="skills__lista">
+            {
+                skills.map(({ iconSrc, name }) => {
+                    return (
+                        <li>
+                            <Image
+                                src={iconSrc}
+                                width={48}
+                                height={48}
+                                alt={name + " icon"}
+                            />
+                            <h6>{name}</h6>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+</div>
