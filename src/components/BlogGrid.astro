@@ -1,0 +1,57 @@
+---
+import BlogCard from "./BlogCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<section>
+    <ul>
+        {
+            posts.map((post, index) => (
+                <BlogCard
+                    title={post.data.title}
+                    pubDate={post.data.pubDate}
+                    heroImage={post.data.heroImage}
+                    href={`/blog/${post.id}/`}
+                    featured={index === 0}
+                />
+            ))
+        }
+    </ul>
+</section>
+
+<style>
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul :global(li) {
+        width: calc(50% - 1rem);
+    }
+    ul :global(li:first-child) {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    @media (max-width: 720px) {
+        ul {
+            gap: 0.5em;
+        }
+        ul :global(li) {
+            width: 100%;
+            text-align: center;
+        }
+        ul :global(li:first-child) {
+            margin-bottom: 0;
+        }
+    }
+</style>

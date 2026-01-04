@@ -1,79 +1,17 @@
 ---
-import { Image } from "astro:assets";
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
 import SkillsSection from "../components/SkillsSection.astro";
-import profileImage from "../assets/profile.webp";
-import StarsBg from "../components/StarsBg.astro";
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead
-			title={"DUBISDEV - Portfolio y Blog de David Jiménez"}
-			description={"My web and blog about Software Engineering"}
-		/>
-	</head>
-
-	<body>
-		<Header />
-		<StarsBg />
-
-		<main>
-			<!-- Hero section -->
-			<section id="hero">
-				<article
-					class="flex-1 min-w-0 max-w-full sm:max-w-2xl px-3 pt-2 order-2 sm:order-1"
-				>
-					<h2
-						class="text-white text-center text-3xl sm:text-left sm:text-4xl md:text-5xl"
-					>
-						👋 ¡Hola! Soy
-					</h2>
-					<h1
-						class="text-sky-600 font-bold text-center text-4xl sm:text-left sm:text-5xl md:text-7xl"
-					>
-						David Jiménez
-					</h1>
-					<h3
-						class="text-white text-center text-xl sm:text-left sm:text-2xl md:text-4xl"
-					>
-						Desarrollador de Software
-					</h3>
-					<p
-						class="text-white mt-5 text-base sm:text-lg md:text-xl xl:text-2xl xl:mt-10"
-					>
-						Soy un desarrollador de software <b>full stack</b> apasionado
-						por el código limpio y la <b>arquitectura de software</b
-						>. En mi tiempo libre creo pequeñas aplicaciones que
-						resulven problemas cotidianos y escribo sobre temas
-						relacionados con el desarrollo de software y la
-						tecnología.
-					</p>
-					<p class="text-base sm:text-lg">
-						¿Quieres saber mis últimos proyectos? Mi <a
-							target="_blank"
-							href="https://github.com/dubisdev">GitHub</a
-						> siempre está actualidado.
-					</p>
-				</article>
-				<div
-					class="flex justify-center w-full sm:w-auto shrink-0 order-1 sm:order-2"
-				>
-					<Image
-						class="home__container-img__img"
-						src={profileImage}
-						alt="Foto de perfil"
-						width={396}
-						height={396}
-					/>
-				</div>
-			</section>
-			<section>
-				<SkillsSection />
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout
+	title={"DUBISDEV - Portfolio y Blog de David Jiménez"}
+	description={"My web and blog about Software Engineering"}
+>
+	<main>
+		<HeroSection />
+		<section>
+			<SkillsSection />
+		</section>
+	</main>
+</BaseLayout>
